@@ -11,10 +11,10 @@ import "fmt"
 用 for 循环遍历该数组并修改为
 ["I","am","smart","and","strong"]
 */
-func main () {
+func main() {
 
-	var arr = [5]string{"I","am","stupid","and","weak"}
-	for i := 0;i < len(arr); i++ {
+	var arr = [5]string{"I", "am", "stupid", "and", "weak"}
+	for i := 0; i < len(arr); i++ {
 		if arr[i] == "stupid" {
 			arr[i] = "smart"
 		}
