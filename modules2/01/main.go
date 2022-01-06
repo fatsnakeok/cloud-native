@@ -1,5 +1,9 @@
 package main
 
+/**
+只写通道：chan<- T
+只读通道：<-chan T
+*/
 import (
 	"fmt"
 	"time"
