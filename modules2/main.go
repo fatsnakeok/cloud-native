@@ -11,7 +11,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/golang/glog"
 	"io"
 	"log"
 	"net/http"
@@ -21,13 +20,15 @@ import (
 
 func main() {
 
-	glog.V(2).Info("Starting http server...")
-	http.HandleFunc("/", indexHandler)
-	http.HandleFunc("/version", versionHandler)
-	http.HandleFunc("/healthz", healthz)
-	err := http.ListenAndServe(":80", nil)
+	log.Printf("Starting http server...")
+	// 设置多路复用处理函数
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", indexHandler)
+	mux.HandleFunc("/version", versionHandler)
+	mux.HandleFunc("/ç", healthz)
+	err := http.ListenAndServe(":80", mux)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("start http server failed, error: %s\n", err)
 	}
 }
 
