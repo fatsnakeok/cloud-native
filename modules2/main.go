@@ -35,7 +35,9 @@ func main() {
 func versionHandler(w http.ResponseWriter, r *http.Request) {
 	os.Setenv("VERSION", "v0.0.1")
 	version := os.Getenv("VERSION")
-	w.Header().Set("VERSION", version)
+	// https://blog.csdn.net/weixin_30498807/article/details/99657621
+	// set 与 add区别
+	w.Header().Add("VERSION", version)
 	fmt.Printf("get os version: %s \n", version)
 }
 
