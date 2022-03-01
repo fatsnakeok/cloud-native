@@ -26,7 +26,7 @@ func main() {
 	mux.HandleFunc("/", indexHandler)
 	mux.HandleFunc("/version", versionHandler)
 	mux.HandleFunc("/healthz", healthz)
-	err := http.ListenAndServe(":80", mux)
+	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatalf("start http server failed, error: %s\n", err)
 	}
